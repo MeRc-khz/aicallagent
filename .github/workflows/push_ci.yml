@@ -23,9 +23,15 @@ jobs:
 
     - name: Run tests
       run: npm run test
+      env:
+          # This maps the GitHub secret 'MY_API_KEY' to the environment variable of the same name
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY}}
 
     - name: Build project
       run: npm run build
+      env:
+          # This maps the GitHub secret 'MY_API_KEY' to the environment variable of the same name
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY}}
 
     - name: Install SSH key
       uses: shimataro/ssh-key-action@v2
