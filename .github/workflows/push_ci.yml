@@ -49,4 +49,4 @@ jobs:
 
       - name: Install Dependencies & Restart
         run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd /var/www/aicallagent && npm install --production && pm2 restart main"
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 'export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && cd /var/www/aicallagent && npm install --production && pm2 restart main'
