@@ -2,9 +2,9 @@ import { Controller, Get, HttpCode, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 import { OpenAI } from 'openai';
 
-const openai = new OpenAI({
+/* const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
-});
+}); */
 
 
 
@@ -12,7 +12,7 @@ const openai = new OpenAI({
 export class AppController {
   constructor(private readonly appService: AppService) {
 
-    console.log(openai)
+   // console.log(openai)
   }
 
 
@@ -24,7 +24,7 @@ export class AppController {
   @Post('incomingcall')
   @HttpCode(200)
   webHookVerification(): void {
-
+    console.log("hit the webhook from the phone")
   }
 
 
